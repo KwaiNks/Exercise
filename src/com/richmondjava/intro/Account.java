@@ -50,7 +50,7 @@ public class Account {
 			System.out.println(myAccount.getAccountOwner() + " your balance is: " + myAccount.getBalance()); //return balance
 		}else if (numberPressed == 2) {
 			System.out.println("Please enter the amount to be deposited: ");
-			amount = scanner.nextInt();
+	 		amount = scanner.nextInt();
 			System.out.println(myAccount.accountOwner +" your new balance after the deposit is: " + myAccount.deposit(amount));
 		}else if (numberPressed == 3){
 			System.out.println("Please enter the amount to withdraw: ");

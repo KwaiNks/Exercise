@@ -9,7 +9,7 @@ public class Calculator {
 
 		String operation = "/";
 		switch (operation) {
-		case "+":
+		case "+": 
 			double add = x + y;
 			System.out.printf("The sum of %.2f and %.2f is %.2f ", x, y, add);
 			break;
