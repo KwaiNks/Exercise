@@ -57,7 +57,7 @@ public class Account {
 			amount = scanner.nextInt();
 			System.out.println(myAccount.accountOwner +" your new balance after the withdrawal is: " + myAccount.withdraw(amount));
 		}else if(numberPressed == 4) {
-			System.exit(0);
+			System.exit(0); 
 		}else {
 			System.out.println("Invalid input ");
 		}
