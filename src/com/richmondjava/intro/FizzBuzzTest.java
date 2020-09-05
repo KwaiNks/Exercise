@@ -6,15 +6,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class FizzBuzzTest {
+	
+	private FizzBuzz fizzBuzz;
 
 	@Before
 	public void setUp() throws Exception {
-		FizzBuzz fizzbuzz = new FizzBuzz();
+		fizzBuzz = new FizzBuzz();
 	}
 
 	@Test
-	public void shouldReturnBuzzIfNumberIsDivisibleByThree() {
-		assertEquals("Fizz".equals(fizzbuzz.getFizzBuzz(0, 4)));
+	public void shouldReturnFizzIfNumberIsDivisibleByThree() {
+		assertTrue("Fizz".equals(fizzBuzz.fizzBuzz(1, 5)));
 	}
-
 }
