@@ -2,20 +2,24 @@ package com.richmondjava.intro;
 
 public class FizzBuzz {
 
-	public String getFizzBuzz(int lowerBound, int upperBound) {
-		String output = "";
-		for (int i = lowerBound; i <= upperBound; i++) {
-			if (i % 3 == 0) {
-				output = "fizz";
-			}else if (i % 5 == 0) {
-				output = "buzz";
-			}else if ((i % 3 == 0) && (i % 5 == 0)) {
-				output = "fizz-buzz";
-			}
-			else {
-				output = String.valueOf(i);
-			}
-		}
-		return output;
-	}
+    public String getFizzBuzz(int value) {
+
+        if ((value % 3 == 0) && (value % 5 == 0)) {
+            return "fizz-buzz";
+        } else if (value % 3 == 0) {
+            return "fizz";
+        } else if (value % 5 == 0) {
+            return "buzz";
+        }
+
+        return String.valueOf(value);
+    }
+
+    public String getFizzBuzz(int lowerBound, int upperBound){
+        StringBuilder fizzBuzz = new StringBuilder();
+        for (int i = lowerBound; i <= upperBound; i++) {
+            fizzBuzz.append(getFizzBuzz(i));
+        }
+        return fizzBuzz.toString();
+    }
 }

@@ -10,22 +10,27 @@ public class FizzBuzzTest {
 	private FizzBuzz fizzbuzz;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		fizzbuzz = new FizzBuzz();
 	}
 
 	@Test
 	public void shouldReturnFizzIfTheLastNumberIsDivisibleByThree() {
-		assertTrue("fizz".equals(fizzbuzz.getFizzBuzz(1, 9)));
+		assertEquals("fizz", fizzbuzz.getFizzBuzz(9));
 	}
 	
 	@Test
 	public void shouldReturnBuzzIfTheLastNumberIsDivisibleByFive() {
-		assertTrue("buzz".equals(fizzbuzz.getFizzBuzz(1, 5)));
+		assertEquals("buzz", fizzbuzz.getFizzBuzz(5));
 	}
 	
 	@Test
 	public void shouldReturnFizzBuzzIfTheLastNumberIsDivisibleByThreeAndFive() {
-		assertTrue("fizz-buzz".equals(fizzbuzz.getFizzBuzz(1, 15)));
+		assertEquals("fizz-buzz", fizzbuzz.getFizzBuzz(15));
+	}
+
+	@Test
+	public void shouldReturnCorrectFizzBuzzEntriesFromOneToTen(){
+		assertEquals("12fizz4buzzfizz78fizzbuzz", fizzbuzz.getFizzBuzz(1, 10));
 	}
 }
