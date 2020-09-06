@@ -18,4 +18,9 @@ public class FizzBuzzTest {
 	public void shouldReturnFizzIfTheLastNumberIsDivisibleByThree() {
 		assertTrue("fizz".equals(fizzbuzz.getFizzBuzz(1, 9)));
 	}
+	
+	@Test
+	public void shouldReturnBuzzIfTheLastNumberIsDivisibleByFive() {
+		assertTrue("buzz".equals(fizzbuzz.getFizzBuzz(1, 5)));
+	}
 }

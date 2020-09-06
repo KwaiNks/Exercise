@@ -7,6 +7,8 @@ public class FizzBuzz {
 		for (int i = lowerBound; i <= Upperbound; i++) {
 			if (i % 3 == 0) {
 				output = "fizz";
+			}else if (i % 5 == 0) {
+				output = "buzz";
 			}
 			else {
 				output = String.valueOf(i);
