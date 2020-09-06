@@ -19,6 +19,6 @@ public class PasswordStrengthTests {
     @Test
     public void shouldReturnStrongIfGreaterThanTenCharactersAndIncludesSpecialCharacters(){
         // Special characters are *&%$
-        assertEquals("strong", passwordStrength.getPasswordStrength("passworD%$&");
+        assertEquals("strong", passwordStrength.getPasswordStrength("passworD%$&"));
     }
 }
