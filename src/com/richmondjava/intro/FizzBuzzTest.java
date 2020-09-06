@@ -7,15 +7,15 @@ import org.junit.Test;
 
 public class FizzBuzzTest {
 	
-	private FizzBuzz fizzBuzz;
+	private FizzBuzz fizzbuzz;
 
 	@Before
 	public void setUp() throws Exception {
-		fizzBuzz = new FizzBuzz();
+		fizzbuzz = new FizzBuzz();
 	}
 
 	@Test
-	public void shouldReturnFizzIfNumberIsDivisibleByThree() {
-		assertTrue("Fizz".equals(fizzBuzz.fizzBuzz(1, 5)));
+	public void shouldReturnFizzIfTheLastNumberIsDivisibleByThree() {
+		assertTrue("fizz".equals(fizzbuzz.getFizzBuzz(1, 9)));
 	}
 }
