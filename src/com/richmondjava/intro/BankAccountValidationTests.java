@@ -18,36 +18,36 @@ public class BankAccountValidationTests {
     @Test
     public void shouldValidateSuccessfullyForSixCharactersInSortCode(){
         bankAccount.setSortCode("124578");
-        assertTrue(bankAccount.isValid());
+        assertTrue(bankAccount.isSortCodeValid());
     }
 
     @Test
     public void shouldNotBeValidIfSortCodeHasLessThanSixCharacters(){
         bankAccount.setSortCode("124");
-        assertFalse(bankAccount.isValid());
+        assertFalse(bankAccount.isSortCodeValid());
     }
 
     @Test
     public void shouldNotBeValidIfSortCodeHasLetters(){
         bankAccount.setSortCode("ABC123");
-        assertFalse(bankAccount.isValid());
+        assertFalse(bankAccount.isSortCodeValid());
     }
 
     @Test
     public void shouldValidateSuccessfullyForNineCharactersInAccountNumber(){
         bankAccount.setAccountNumber("123456789");
-        assertTrue(bankAccount.isValid());
+        assertTrue(bankAccount.isAccountNumberValid());
     }
 
     @Test
     public void shouldNotBeValidIfAccountNumberHasLessThanNineCharacters(){
         bankAccount.setAccountNumber("123");
-        assertFalse(bankAccount.isValid());
+        assertFalse(bankAccount.isAccountNumberValid());
     }
 
     @Test
     public void shouldNotBeValidIfAccountNumbersHasLetters(){
         bankAccount.setAccountNumber("ABC456789");
-        assertFalse(bankAccount.isValid());
+        assertFalse(bankAccount.isAccountNumberValid());
     }
 }
