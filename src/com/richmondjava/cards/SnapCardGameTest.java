@@ -40,7 +40,7 @@ public class SnapCardGameTest {
         player2 = new Player(player2Cards);
         snapCardGame = new SnapCardGame(player1, player2);
 
-        assertEquals("SNAP", snapCardGame.playeOneCardWithEachPlayer());
+        assertEquals("SNAP", snapCardGame.playAllCardsWithEachPlayer());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class SnapCardGameTest {
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
 
-        assertEquals("CONTINUE", snapCardGame.playeOneCardWithEachPlayer());
+        assertEquals("END", snapCardGame.playAllCardsWithEachPlayer());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class SnapCardGameTest {
         player1 = new Player(player1Cards);
         player2 = new Player(player2Cards);
 
-        assertEquals("END", snapCardGame.playeOneCardWithEachPlayer());
+        assertEquals("END", snapCardGame.playAllCardsWithEachPlayer());
     }
 
 }
