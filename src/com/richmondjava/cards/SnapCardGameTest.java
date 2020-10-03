@@ -14,6 +14,7 @@ public class SnapCardGameTest {
     private DeckOfCards[] deckOfPlayingCards;
     private DeckOfCards[] gameTableForExtractedCards;
     private SnapCardGame snapCardGame;
+    private int arrayIndex = 0;
     
     @Test
     public void shouldPlay26Times(){   	
@@ -30,5 +31,24 @@ public class SnapCardGameTest {
 
         assertEquals(26, snapCardGame.getNumberOfCardsPlayed());
     }
+    
+    @Test
+
+    public void shouldEndTheGameWhenTwoCardsHaveTheSameNumber(){
+        //create a card and add to the players card array
+    	Card card1 = new Card(5, "HEARTS");
+        player1Cards[arrayIndex] = (card1);
+        Card card2 = new Card(5, "CLUBS");
+        player2Cards[arrayIndex] = (card2);
+        //create a player and get the value of the players card in the respective index
+        player1 = new Player("Richmond",player1Cards[arrayIndex].getValue());
+        player2 = new Player("Daniel",player2Cards[arrayIndex].getValue());
+
+        snapCardGame = new SnapCardGame(player1, player2);
+        
+        assertEquals("SNAP", snapCardGame.playAllCards());
+    }
+
+
 
 }
