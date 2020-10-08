@@ -20,4 +20,9 @@ public class PlayerTest {
 	public void shouldReturnPlayerName() {
 		assertTrue("Richmond".equals(player.getName()));
 	}
+	
+	@Test
+	public void shouldReturnTheNumberOfCardsAPlayerHas() {
+		assertEquals(20,(player.getCards()));
+	}
 }

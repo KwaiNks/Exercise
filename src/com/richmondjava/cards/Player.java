@@ -10,16 +10,13 @@ public class Player {
 		this.cards = cards;
 	}
 
-
 	public String getName() {
 		return this.name;
 	}
 
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	public Card getCards() {
 		return this.cards;
@@ -27,5 +24,9 @@ public class Player {
 
 	public void setCards(Card cards) {
 		this.cards = cards;
+	}
+
+	public String toString() {
+		return "Player [name=" + this.name + ", cards=" + this.cards + "]";
 	}
 }
