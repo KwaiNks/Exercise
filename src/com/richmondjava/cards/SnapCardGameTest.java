@@ -9,16 +9,17 @@ public class SnapCardGameTest {
 
 	private Player player1;
 	private Player player2;
-	private DeckOfCards[] player1Cards;
-	private DeckOfCards[] player2Cards;
-	private DeckOfCards[] deckOfPlayingCards;
+	private Card[] player1Cards;
+	private Card[] player2Cards;
+	private Card[] deckOfPlayingCards;
 	private SnapCardGame snapCardGame;
 	private int arrayIndex = 0;
 
 	@Test
 	public void shouldPlay26Times(){   	
-		deckOfPlayingCards = new DeckOfCards[52];
-		deckOfPlayingCards.isShuffled();
+		DeckOfCards deckOfCards = new DeckOfCards();
+		deckOfPlayingCards = new Card[52];
+		deckOfCards.shuffleDeck();
 		player1Cards = Arrays.copyOfRange(deckOfPlayingCards, 0, (deckOfPlayingCards.length/2)-1);
 		player2Cards = Arrays.copyOfRange(deckOfPlayingCards, deckOfPlayingCards.length/2, deckOfPlayingCards.length);
 

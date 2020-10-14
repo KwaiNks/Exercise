@@ -10,7 +10,7 @@ public class DeckOfCards {
 		deckOfPlayingCards = new Card[52];
 		extractedCards = new Card[52];
 		int suit;
-		int value = 0;
+		String name = " ";
 		int countValue = 0;
 		int countSuit = 0;
 		for (int i = 0; i < deckOfPlayingCards.length; i++) {
@@ -19,54 +19,53 @@ public class DeckOfCards {
 
 			switch (countValue) {
 			case 0:
-				value = 2;
+				name = "Two";
 				break;
 			case 1:
-				value = 3;
+				name = "Three";
 				break;
 			case 2:
-				value = 4;
+				name = "Four";
 				break;
 			case 3:
-				value = 5;
+				name = "Five";
 				break;
 			case 4:
-				value = 6;
+				name = "Six";
 				break;
 			case 5:
-				value = 7;
+				name = "Seven";
 				break;
 			case 6:
-				value = 8;
+				name = "Eight";
 				break;
 			case 7:
-				value = 9;
+				name = "Nine";
 				break;
 			case 8:
-				value = 10;
+				name = "Ten";
 				break;
 			case 9:
-				value = 11;
+				name = "Jack";
 				break;
 			case 10:
-				value = 12;
+				name = "Queen";
 				break;
 			case 11:
-				value = 13;
+				name = "King";
 				break;
 			case 12:
-				value = 14;
+				name = "Ace";
 				break;
 			}
 
-			deckOfPlayingCards[i] = new Card(suit, value);
+			deckOfPlayingCards[i] = new Card(suit, name, countValue);
 
 			if (countSuit >= 3) {
 				countSuit = 0;
 				countValue++;
-			}else {
+			}else 
 				countSuit++;
-			}
 		}
 	}
 
@@ -78,7 +77,7 @@ public class DeckOfCards {
 		return deckOfPlayingCards;
 	}
 
-	public Card[] getGameTableForExtractedCards() {
+	public Card[] getExtractedCards() {
 		return extractedCards;
 	}
 
@@ -87,8 +86,8 @@ public class DeckOfCards {
 		return deckOfPlayingCards[cardToDraw - 1];
 	}
 
-	public void setDrawnCards(Card[] gameTableForExtractedCards) { 
-		this.extractedCards = gameTableForExtractedCards;
+	public void setDrawnCards(Card[] extractedCards) { 
+		this.extractedCards = extractedCards;
 	}
 
 	public void shuffleDeck() {

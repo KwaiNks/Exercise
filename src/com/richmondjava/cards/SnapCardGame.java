@@ -6,10 +6,10 @@ public class SnapCardGame {
 
 	private Player player1;
 	private Player player2;
-	private DeckOfCards[] player1Cards;
-	private DeckOfCards[] player2Cards;
-	private DeckOfCards[] playingCards = new DeckOfCards[52];
-	private DeckOfCards[] extractedCards;
+	private Card[] player1Cards;
+	private Card[] player2Cards;
+	private Card[] playingCards = new Card[52];
+	private Card[] extractedCards;
 	private int count = 0;
 	private int sum = 0;
 
@@ -18,16 +18,17 @@ public class SnapCardGame {
 		this.player2 = player2;
 		player1Cards = Arrays.copyOfRange(playingCards, 0, (playingCards.length/2)-1);
 		player2Cards = Arrays.copyOfRange(playingCards, playingCards.length/2, playingCards.length);
-
 	}
 
 	public int getNumberOfCardsPlayed() {
-		for (int i = 0; i < player1Cards.length; i++) {
+		for (int i = 0; i < extractedCards.length; i++) {
 			count++;
 			sum += count;
 		}
 		return sum;
 	}
 	
-	
+	public void playAllCardsWithEachPlayer() {
+		
+	}
 }
