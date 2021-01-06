@@ -1,10 +1,10 @@
 package com.richmondjava.cards;
 
 public class Player {
-	
+
 	private String name;
 	private Card[] cards;
-	
+
 	public Player(String name, Card[] cards) {
 		this.name = name;
 		this.cards = cards;

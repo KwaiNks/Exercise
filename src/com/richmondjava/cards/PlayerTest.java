@@ -8,21 +8,22 @@ import org.junit.Test;
 public class PlayerTest {
 
 	Player player;
-	Card cards;
-	
+	Card [] cards;
+
 	@Before
 	public void setUp() throws Exception {
-		
+
+		cards = new Card[26];
 		player = new Player("Richmond",cards);
 	}
-	
+
 	@Test
 	public void shouldReturnPlayerName() {
 		assertTrue("Richmond".equals(player.getName()));
 	}
-	
+
 	@Test
 	public void shouldReturnTheNumberOfCardsAPlayerHas() {
-		assertEquals(20,(player.getCards()));
+		assertEquals(26,(player.getCards().length));
 	}
 }

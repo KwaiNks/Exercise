@@ -3,17 +3,17 @@ import java.util.Random;
 
 public class DeckOfCards {
 
-	private Card[] deckOfPlayingCards;
-	private Card[] extractedCards;
+	private Card[] totalDeckOfPlayingCards;
+	private Card[] totalExtractedCards;
 
 	public DeckOfCards() {
-		deckOfPlayingCards = new Card[52];
-		extractedCards = new Card[52];
+		totalDeckOfPlayingCards = new Card[52];
+		totalExtractedCards = new Card[52];
 		int suit;
 		String name = " ";
 		int countValue = 0;
 		int countSuit = 0;
-		for (int i = 0; i < deckOfPlayingCards.length; i++) {
+		for (int i = 0; i < totalDeckOfPlayingCards.length; i++) {
 
 			suit = countSuit;
 
@@ -59,7 +59,7 @@ public class DeckOfCards {
 				break;
 			}
 
-			deckOfPlayingCards[i] = new Card(suit, name, countValue);
+			totalDeckOfPlayingCards[i] = new Card(suit, name, countValue);
 
 			if (countSuit >= 3) {
 				countSuit = 0;
@@ -70,24 +70,24 @@ public class DeckOfCards {
 	}
 
 	public DeckOfCards(Card[] deckOfPlayingCards) {
-		this.deckOfPlayingCards = deckOfPlayingCards;
+		this.totalDeckOfPlayingCards = deckOfPlayingCards;
 	}
 
-	public Card[] getDeckOfPlayingCards() {
-		return deckOfPlayingCards;
+	public Card[] getTotalDeckOfPlayingCards() {
+		return totalDeckOfPlayingCards;
 	}
 
-	public Card[] getExtractedCards() {
-		return extractedCards;
+	public Card[] getTotalExtractedCards() {
+		return totalExtractedCards;
 	}
 
-	public Card drawCard(int cardToDraw) { 
-		extractedCards[cardToDraw - 1] = deckOfPlayingCards[cardToDraw - 1]; 
-		return deckOfPlayingCards[cardToDraw - 1];
+	public Card extractCard(int cardToExtract) { 
+		totalExtractedCards[cardToExtract - 1] = totalDeckOfPlayingCards[cardToExtract - 1]; 
+		return totalDeckOfPlayingCards[cardToExtract - 1];
 	}
 
-	public void setDrawnCards(Card[] extractedCards) { 
-		this.extractedCards = extractedCards;
+	public void setExtractedCards(Card[] extractedCards) { 
+		this.totalExtractedCards = extractedCards;
 	}
 
 	public void shuffleDeck() {
@@ -97,12 +97,12 @@ public class DeckOfCards {
 		Card[] shuffledDeck = new Card[52]; 
 		while (i < shuffledDeck.length) {
 			position = shuffler.nextInt(52);
-			if (deckOfPlayingCards[position].isShuffled() == false) {
-				shuffledDeck[i] = deckOfPlayingCards[position]; 
+			if (totalDeckOfPlayingCards[position].isShuffled() == false) {
+				shuffledDeck[i] = totalDeckOfPlayingCards[position]; 
 				i++; 
-				deckOfPlayingCards[position].setShuffled(true);
+				totalDeckOfPlayingCards[position].setShuffled(true);
 			} 
 		}
-		deckOfPlayingCards = shuffledDeck;
+		totalDeckOfPlayingCards = shuffledDeck;
 	}
 }

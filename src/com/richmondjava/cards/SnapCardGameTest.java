@@ -4,6 +4,7 @@ import org.junit.Before;
 import java.util.Arrays;
 import org.junit.Test;
 import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.nullValue;
 
 public class SnapCardGameTest {
 
@@ -14,6 +15,15 @@ public class SnapCardGameTest {
 	private Card[] deckOfPlayingCards;
 	private SnapCardGame snapCardGame;
 	private int arrayIndex = 0;
+
+	@Before
+	public void setUp() throws Exception {
+
+		player1Cards = new Card[26];
+		player2Cards = new Card[26];
+		player1 = new Player("Richmond",player1Cards);
+		player2 = new Player("Richmond",player2Cards);
+	}
 
 	@Test
 	public void shouldPlay26Times(){   	
@@ -36,12 +46,12 @@ public class SnapCardGameTest {
 
 	public void shouldEndTheGameWhenTwoCardsHaveTheSameNumber(){
 		//create a card and add to the players card array
-		Card card1 = new Card(5, "HEARTS");
-		player1Cards[arrayIndex] = (card1);
-		Card card2 = new Card(5, "CLUBS");
-		player2Cards[arrayIndex] = (card2);
+		Card card1 = new Card(0, "HEARTS", 5);
+		player1Cards[arrayIndex] = card1;
+		Card card2 = new Card(1, "CLUBS", 5);
+		player2Cards[arrayIndex] = card2;
 		//create a player and get the value of the players card in the respective index
-		player1 = new Player("Richmond",player1Cards[arrayIndex].getValue());
+		player1 = new Player("Richmond", player1Cards[arrayIndex].getValue());
 		player2 = new Player("Daniel",player2Cards[arrayIndex].getValue());
 
 		snapCardGame = new SnapCardGame(player1, player2);
@@ -53,13 +63,13 @@ public class SnapCardGameTest {
 
 	public void shouldContinueGameWhenTwoCardsDoNotHaveTheSameNumberAndThereAreMoreCardsRemaining(){
 
-		Card card1 = new Card(4, "HEARTS");
-		Card card2 = new Card(5, "CLUBS");
+		Card card1 = new Card(3,"HEARTS", 8);
+		Card card2 = new Card(2,"CLUBS", 5);
 		player1Cards[arrayIndex]= card1;
 		player1Cards[arrayIndex + 1] = card2;
 
-		Card card3 = new Card(8, "HEARTS");
-		Card card4 = new Card(9, "CLUBS");
+		Card card3 = new Card(1,"HEARTS", 6);
+		Card card4 = new Card(0,"CLUBS", 4);
 		player2Cards[arrayIndex] = card3;
 		player2Cards[arrayIndex + 1] = card4;
 
@@ -68,36 +78,18 @@ public class SnapCardGameTest {
 
 		assertEquals("END", snapCardGame.playAllCards());
 	}
-		@Test
 
-		public void shouldContinueGameWhenTwoCardsDoNotHaveTheSameNumberAndThereAreMoreCardsRemaining(){
-			Card card1 = new Card(4, "HEARTS");
-			Card card2 = new Card(5, "CLUBS");
-			player1Cards[arrayIndex] = card1;
-			player1Cards[arrayIndex + 1] = card2;
+	@Test
 
-			Card card3 = new Card(8, "HEARTS");
-			Card card4 = new Card(9, "CLUBS");
-			player2Cards[arrayIndex] = card3;
-			player2Cards[arrayIndex + 1] = card4;
+	public void shouldEndGameWhenNoMoreCardsLeftToPlay(){
 
-			player1 = new Player(player1Cards);
-			player2 = new Player(player2Cards);
+		player1Cards = new Card[0];
+		player2Cards = new Card[0];
 
-			assertEquals("END", snapCardGame.playAllCards());
-		}
+		player1 = new Player("Richmond",player1Cards);
+		player2 = new Player("Daniel",player2Cards);
 
-		@Test
+		assertEquals("END", snapCardGame.playAllCards());
 
-		public void shouldEndGameWhenNoMoreCardsLeftToPlay(){
-
-			player1Cards = new Card[0];
-			player2Cards = new Card[0];
-
-			player1 = new Player("Richmond",player1Cards);
-			player2 = new Player("Daniel",player2Cards);
-
-			assertEquals("END", snapCardGame.playAllCards());
-
-		}
 	}
+}
