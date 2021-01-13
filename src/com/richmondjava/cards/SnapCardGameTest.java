@@ -2,6 +2,8 @@ package com.richmondjava.cards;
 
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Arrays;
 import org.junit.Test;
 import org.junit.Assert;
@@ -83,23 +85,20 @@ public class SnapCardGameTest {
 		assertEquals(26, snapCardGame.getCountCardsPlayedByBothPlayers());
 	}
 
-//	@Test
-//
-//	public void shouldEndTheGameWhenTwoCardsHaveTheSameNumber(){
-//		//create a card and add to the players card array
-//		Card card1 = new Card(0, "HEARTS", 5);
-//		player1Cards[arrayIndex] = card1;
-//		Card card2 = new Card(1, "CLUBS", 5);
-//		player2Cards[arrayIndex] = card2;
-//		//create a player and get the value of the players card in the respective index
-//		player1 = new Player("Richmond", player1Cards[arrayIndex].getValue());
-//		player2 = new Player("Daniel",player2Cards[arrayIndex].getValue());
-//
-//		snapCardGame = new SnapCardGame(player1, player2);
-//
-//		assertEquals("SNAP", snapCardGame.playAllCards());
-//	}
-//
+    @Test
+	public void shouldEndTheGameWhenTwoCardsHaveTheSameNumber(){
+		
+		player1Cards[0] = new Card(0, "Jack", 0);
+		player2Cards[0] = new Card(2, "Jack", 0);
+		player1 = new Player("Richmond", player1Cards);
+		player2 = new Player("Daniel",player2Cards);
+
+		snapCardGame = new SnapCardGame(player1, player2);
+		snapCardGame.playCardGame();
+
+		assertTrue("SNAP!", snapCardGame.isSnap());
+	}
+
 //	@Test
 //	public void shouldContinueGameWhenTwoCardsDoNotHaveTheSameValueAndThereAreMoreCardsRemaining(){
 //
