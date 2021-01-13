@@ -11,10 +11,7 @@ public class SnapCardGameTest {
 	private Player player1;
 	private Player player2;
 	private Card[] player1Cards = new Card[26];
-	private Card[] player2Cards = new Card[26];;
-	private String game;
-	private final int NUMBER_OF_CARDS_FOR_PLAYERS = 26;
-	private int countCardsPlayedByBothPlayers = 0;
+	private Card[] player2Cards = new Card[26];
 	private SnapCardGame snapCardGame;
 
 	@Before
@@ -76,18 +73,14 @@ public class SnapCardGameTest {
 
 		player1 = new Player("Richmond",player1Cards);
 		player2 = new Player("Daniel",player2Cards);
+
+		snapCardGame = new SnapCardGame(player1, player2);
 	}
 
 	@Test
 	public void shouldPlay26Times(){   	
-		for (int i = 0; i < NUMBER_OF_CARDS_FOR_PLAYERS; i++) {
-			if (player1Cards[i].getValue() != player2Cards[i].getValue()) {
-				countCardsPlayedByBothPlayers++;
-			}else {
-				game = "SNAP";
-			}
-		}
-		assertEquals(26, countCardsPlayedByBothPlayers);
+		snapCardGame.playCardGame();
+		assertEquals(26, snapCardGame.getCountCardsPlayedByBothPlayers());
 	}
 
 //	@Test
