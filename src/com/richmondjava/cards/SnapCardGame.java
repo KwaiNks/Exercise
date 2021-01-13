@@ -4,7 +4,7 @@ public class SnapCardGame {
 
 	private Player player1;
 	private Player player2;
-	private String game;
+	private boolean isSnap;
 	private int countCardsPlayedByBothPlayers = 0;
 	
 	private final int NUMBER_OF_CARDS_FOR_PLAYERS = 26;
@@ -21,12 +21,16 @@ public class SnapCardGame {
 			if (player1.getCards()[i].getValue() !=player2.getCards()[i].getValue()) {
 				countCardsPlayedByBothPlayers++;
 			}else {
-				game = "SNAP";
+				isSnap = true;
 			}
 		}
 	}
 
 	public int getCountCardsPlayedByBothPlayers(){
 		return countCardsPlayedByBothPlayers;
+	}
+
+	public boolean isSnap(){
+		return isSnap;
 	}
 }
