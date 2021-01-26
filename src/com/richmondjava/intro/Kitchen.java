@@ -32,7 +32,7 @@ public class Kitchen {
 		return arrayOfTables.length;	
 	}
 
-	public Object getNumberOfKettlesOnATable(int positionOfRequestedTable) {
+	public int getNumberOfKettlesOnATable(int positionOfRequestedTable) {
 		Table table = getTable(positionOfRequestedTable);
 		return table.getNumberOfKettlesOnATable();
 	}

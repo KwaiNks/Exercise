@@ -14,9 +14,6 @@ public class KitchenTest {
 	@Before
 	public void setUp() {
 		kitchen = new Kitchen(2);
-		arrayOfTables = new Table[2];
-		arrayOfTables[0] = new Table(2);
-		arrayOfTables[1] = new Table(0);
 	}
 
 	@Test
@@ -37,6 +34,9 @@ public class KitchenTest {
 
 	@Test
 	public void shouldReturnTheNumberOfKettlesOnAGivenTable() {
+		arrayOfTables = new Table[2];
+		arrayOfTables[0] = new Table(2);
+		arrayOfTables[1] = new Table(0);
 		kitchen = new Kitchen(arrayOfTables);
 		assertEquals(0, kitchen.getNumberOfKettlesOnATable(1));	
 	}
