@@ -24,16 +24,12 @@ public class Kitchen {
 		this.KitchenSize = kitchenSize;
 	}
 
-	public Table getTable(int positionOfRequestedTable) {
-		return arrayOfTables[positionOfRequestedTable];
-	}
-
 	public int getNumberOfTablesInTheKitchen() {
 		return arrayOfTables.length;	
 	}
 
 	public int getNumberOfKettlesOnATable(int positionOfRequestedTable) {
-		Table table = getTable(positionOfRequestedTable);
+		Table table = arrayOfTables[positionOfRequestedTable];
 		return table.getNumberOfKettlesOnATable();
 	}
 }

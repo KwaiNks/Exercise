@@ -28,11 +28,6 @@ public class KitchenTest {
 	}
 
 	@Test
-	public void shouldReturnATable() {
-		assertNotNull(kitchen.getTable(1));
-	}
-
-	@Test
 	public void shouldReturnTheNumberOfKettlesOnAGivenTable() {
 		arrayOfTables = new Table[2];
 		arrayOfTables[0] = new Table(2);
