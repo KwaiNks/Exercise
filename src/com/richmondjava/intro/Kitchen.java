@@ -13,10 +13,7 @@ public class Kitchen {
 	}
 
 	public Kitchen(Table[] tables) {
-		arrayOfTables = tables;
-		for (int i = 0; i < tables.length; i++) {
-			arrayOfTables[i] = new Table();
-		}	
+		arrayOfTables = tables;	
 	}
 
 	public int getKitchenSize() {
@@ -28,7 +25,7 @@ public class Kitchen {
 	}
 
 	public Table getTable(int positionOfRequestedTable) {
-		return arrayOfTables[positionOfRequestedTable-1];
+		return arrayOfTables[positionOfRequestedTable];
 	}
 
 	public int getNumberOfTablesInTheKitchen() {
