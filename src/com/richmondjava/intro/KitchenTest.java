@@ -36,8 +36,8 @@ public class KitchenTest {
 	}
 
 	@Test
-	public void shouldReturnTheNumberOfKettlesOnATable() {
+	public void shouldReturnTheNumberOfKettlesOnAGivenTable() {
 		kitchen = new Kitchen(arrayOfTables);
-		assertEquals(0, kitchen.getTable(1).getNumberOfKettlesOnATable());	
+		assertEquals(0, kitchen.getNumberOfKettlesOnATable(1));	
 	}
 }

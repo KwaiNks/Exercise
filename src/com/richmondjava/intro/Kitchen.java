@@ -31,4 +31,9 @@ public class Kitchen {
 	public int getNumberOfTablesInTheKitchen() {
 		return arrayOfTables.length;	
 	}
+
+	public Object getNumberOfKettlesOnATable(int positionOfRequestedTable) {
+		Table table = getTable(positionOfRequestedTable);
+		return table.getNumberOfKettlesOnATable();
+	}
 }
