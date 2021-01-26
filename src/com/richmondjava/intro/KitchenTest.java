@@ -40,4 +40,12 @@ public class KitchenTest {
 		kitchen = new Kitchen(arrayOfTables);
 		assertEquals(0, kitchen.getNumberOfKettlesOnATable(1));	
 	}
+
+
+	@Test
+	public void shouldReturnTheNumberOfPansOnAGivenCooker(){
+
+
+		assertEquals(1, kitchen.getNumberOfPansOnACooker(1));
+	}
 }
