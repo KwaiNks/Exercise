@@ -1,5 +1,4 @@
 package com.richmondjava.intro;
-import com.richmondjava.intro.Cooker;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

@@ -44,4 +44,16 @@ public class KitchenTest {
 		kitchen = new Kitchen(arrayOfTables, arrayOfCookers);
 		assertEquals(1, kitchen.getNumberOfSaucepansOnACooker(0));
 	}
+
+	@Test
+	public void shouldAddACookerToTheKitchen(){
+		Kitchen kitchenTwo = new Kitchen(1,9);
+		kitchenTwo.addCookerToTheKitchen(new Cooker());
+		assertEquals(10, kitchenTwo.getNumberOfCookersInTheKitchen());  
+	}
+
+	@Test
+	public void shouldMoveASaucepanFromOneCookerToAnother(){
+
+	}
 }
