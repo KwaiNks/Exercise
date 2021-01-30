@@ -1,15 +1,17 @@
 package com.richmondjava.intro;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cooker {
 
     private int size;
-    Saucepan[] saucepan;
+    List<Saucepan> saucepanList; 
 
-    public  Cooker(Saucepan[] saucepan) {
-        this.saucepan = saucepan;
-        for(int i = 0; i < saucepan.length; i++){
-            saucepan[i] = new Saucepan();
-        }
+    public  Cooker(int numberOfSaucepans) {
+        saucepanList = new ArrayList<Saucepan>(numberOfSaucepans);
+        for(int i = 0; i < numberOfSaucepans; i++)
+        saucepanList.add(new Saucepan());
     }
 
     public Cooker() {
@@ -23,8 +25,20 @@ public class Cooker {
         this.size = size;
     }
 
-	public int getNumberOfSaucepansOnACooker() {
-		return this.saucepan.length;
+	public int getNumberOfSaucepans() {
+		return saucepanList.size();
+	}
+
+	public Saucepan getSaucepan(int positionOfSaucepan) {
+		return saucepanList.get(positionOfSaucepan);
+	}
+
+	public void removeSaucepan(int saucepanToBeRemoved) {
+        saucepanList.remove(saucepanToBeRemoved);
+	}
+
+	public void addSaucepan(Saucepan saucepanToBeAdded) {
+        saucepanList.add(saucepanToBeAdded);
 	}
 
 }

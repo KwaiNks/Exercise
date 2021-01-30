@@ -1,6 +1,7 @@
 package com.richmondjava.intro;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,12 +10,12 @@ public class KitchenTest {
 	Kitchen kitchen;
 	Table[] arrayOfTables;
 	Cooker[] arrayOfCookers;
-	Saucepan[] saucepan;
+	Cooker cookerOne;
+	Cooker cookerTwo;
 
 	@Before
 	public void setUp() {
-		kitchen = new Kitchen(2,1);
-		saucepan = new Saucepan[1];
+		kitchen = new Kitchen(2,2);
 	}
 
 	@Test
@@ -40,9 +41,9 @@ public class KitchenTest {
 	@Test
 	public void shouldReturnTheNumberOfSaucepansOnAGivenCooker() { 
 		arrayOfCookers = new Cooker[1];
-		arrayOfCookers[0] = new Cooker(saucepan);
+		arrayOfCookers[0] = new Cooker(3);
 		kitchen = new Kitchen(arrayOfTables, arrayOfCookers);
-		assertEquals(1, kitchen.getNumberOfSaucepansOnACooker(0));
+		assertEquals(3, kitchen.getNumberOfSaucepansOnACooker(0));
 	}
 
 	@Test
@@ -54,6 +55,12 @@ public class KitchenTest {
 
 	@Test
 	public void shouldMoveASaucepanFromOneCookerToAnother(){
+		cookerOne = new Cooker(1);
+		cookerTwo = new Cooker(2);
+		kitchen.moveSaucepanFromOneCookerToAnother(1,0,0);
+		assertEquals(1, cookerOne.getNumberOfSaucepans());
+		assertEquals(2, cookerTwo.getNumberOfSaucepans());
+
 
 	}
 }

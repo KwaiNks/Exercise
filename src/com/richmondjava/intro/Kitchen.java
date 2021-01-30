@@ -1,7 +1,5 @@
 package com.richmondjava.intro;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Kitchen {
@@ -13,17 +11,14 @@ public class Kitchen {
 	List<Cooker> cookerList;
 
 	public Kitchen(int numberOfTables, int numberOfCookers) {
-		arrayOfTables = new Table[numberOfTables];
+		tableList = new ArrayList<Table>(numberOfTables);
 		for (int i = 0; i < numberOfTables; i++) {
-			arrayOfTables[i] = new Table(); 
+			tableList.add(new Table(2));
 		}
-		arrayOfCookers = new Cooker[numberOfCookers];
-		for (int i = 0; i < arrayOfCookers.length; i++) {
-			arrayOfCookers[i] = new Cooker();
+		cookerList = new ArrayList<Cooker>(numberOfCookers);
+		for (int i = 0; i < numberOfCookers; i++) {
+			cookerList.add(new Cooker(4));
 		}
-
-		tableList = new ArrayList<Table>(Arrays.asList(arrayOfTables));	
-		cookerList = new ArrayList<Cooker>(Arrays.asList(arrayOfCookers));
 	}
 
 	public Kitchen(Table[] tables, Cooker[] cookers) {
@@ -40,7 +35,7 @@ public class Kitchen {
 	}
 
 	public int getNumberOfTablesInTheKitchen() {
-		return arrayOfTables.length;	
+		return tableList.size();
 	}
 
 	public int getNumberOfKettlesOnATable(int positionOfRequestedTable) {
@@ -50,7 +45,7 @@ public class Kitchen {
 
 	public int getNumberOfSaucepansOnACooker(int positioneOfCooker) {
         Cooker cooker = arrayOfCookers[positioneOfCooker];
-		return cooker.getNumberOfSaucepansOnACooker();
+		return cooker.getNumberOfSaucepans();
 	}
 
 	public void addCookerToTheKitchen(Cooker cookerToBeAdded) {
@@ -59,5 +54,11 @@ public class Kitchen {
 
 	public int getNumberOfCookersInTheKitchen() {
 		return cookerList.size();
+	}
+
+	public void moveSaucepanFromOneCookerToAnother(int currentCookerWithSaucepan ,int saucepanToBeMoved, int cookerWhereSaucepanWillBeMovedTo) {
+       Saucepan saucepan = cookerList.get(currentCookerWithSaucepan).getSaucepan(saucepanToBeMoved);
+	   cookerList.get(currentCookerWithSaucepan).removeSaucepan(saucepanToBeMoved);
+	   cookerList.get(cookerWhereSaucepanWillBeMovedTo).addSaucepan(saucepan);
 	}
 }

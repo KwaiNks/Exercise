@@ -6,12 +6,10 @@ import org.junit.Test;
 public class CookerTest {
     
     Cooker cooker;
-    Saucepan[] saucepan;
 
     @Before
     public void setUp(){
-        saucepan = new Saucepan[4];
-        cooker = new Cooker(saucepan);
+        cooker = new Cooker(4);
     }
 
     @Test
@@ -22,6 +20,6 @@ public class CookerTest {
 
     @Test
     public void shouldReturnTheNumberOfSaucepans() {
-        assertEquals(4, cooker.getNumberOfSaucepansOnACooker());
+        assertEquals(4, cooker.getNumberOfSaucepans());
     }
 }
