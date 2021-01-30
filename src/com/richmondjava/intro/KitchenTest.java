@@ -2,6 +2,8 @@ package com.richmondjava.intro;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class KitchenTest {
 
 	@Before
 	public void setUp() {
-		kitchen = new Kitchen(2,2);
+		kitchen = new Kitchen(2);
 	}
 
 	@Test
@@ -31,36 +33,34 @@ public class KitchenTest {
 
 	@Test
 	public void shouldReturnTheNumberOfKettlesOnAGivenTable() {
-		arrayOfTables = new Table[2];
-		arrayOfTables[0] = new Table(2);
-		arrayOfTables[1] = new Table(0);
-		kitchen = new Kitchen(arrayOfTables,arrayOfCookers);
+		kitchen = new Kitchen(Arrays.asList(new Table(2), new Table(0)));
 		assertEquals(0, kitchen.getNumberOfKettlesOnATable(1));
 	}
 
 	@Test
 	public void shouldReturnTheNumberOfSaucepansOnAGivenCooker() { 
-		arrayOfCookers = new Cooker[1];
-		arrayOfCookers[0] = new Cooker(3);
-		kitchen = new Kitchen(arrayOfTables, arrayOfCookers);
+		kitchen = new Kitchen();
+		kitchen.addCookerToTheKitchen(new Cooker(3));
 		assertEquals(3, kitchen.getNumberOfSaucepansOnACooker(0));
 	}
 
 	@Test
 	public void shouldAddACookerToTheKitchen(){
-		Kitchen kitchenTwo = new Kitchen(1,9);
+		Kitchen kitchenTwo = new Kitchen();
 		kitchenTwo.addCookerToTheKitchen(new Cooker());
-		assertEquals(10, kitchenTwo.getNumberOfCookersInTheKitchen());  
+		assertEquals(1, kitchenTwo.getNumberOfCookersInTheKitchen());  
 	}
 
 	@Test
 	public void shouldMoveASaucepanFromOneCookerToAnother(){
-		cookerOne = new Cooker(1);
-		cookerTwo = new Cooker(2);
-		kitchen.moveSaucepanFromOneCookerToAnother(1,0,0);
-		assertEquals(1, cookerOne.getNumberOfSaucepans());
-		assertEquals(2, cookerTwo.getNumberOfSaucepans());
+		
+		cookerOne = new Cooker(2);
+		cookerTwo = new Cooker(0);
+		Kitchen kitchen = new Kitchen();
+		kitchen.addCookerToTheKitchen(cookerOne);
+		kitchen.addCookerToTheKitchen(cookerTwo);
 
-
+		kitchen.moveSaucepanFromOneCookerToAnother(0, 0, 1);
+		assertEquals(1, kitchen.getNumberOfSaucepansOnACooker(1));
 	}
 }

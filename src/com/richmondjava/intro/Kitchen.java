@@ -5,25 +5,24 @@ import java.util.List;
 public class Kitchen {
 
 	private int KitchenSize;
-	Table[] arrayOfTables;
-	Cooker[] arrayOfCookers;
 	List<Table> tableList; 
 	List<Cooker> cookerList;
 
-	public Kitchen(int numberOfTables, int numberOfCookers) {
+	public Kitchen(int numberOfTables) {
+		cookerList = new ArrayList<Cooker>();
 		tableList = new ArrayList<Table>(numberOfTables);
 		for (int i = 0; i < numberOfTables; i++) {
 			tableList.add(new Table(2));
 		}
-		cookerList = new ArrayList<Cooker>(numberOfCookers);
-		for (int i = 0; i < numberOfCookers; i++) {
-			cookerList.add(new Cooker(4));
-		}
 	}
 
-	public Kitchen(Table[] tables, Cooker[] cookers) {
-		arrayOfTables = tables;	
-		arrayOfCookers = cookers;
+	public Kitchen(List<Table> tables){
+		cookerList = new ArrayList<Cooker>();
+		tableList = tables;
+	}
+
+	public Kitchen(){
+		cookerList = new ArrayList<Cooker>();
 	}
 
 	public int getKitchenSize() {
@@ -39,12 +38,12 @@ public class Kitchen {
 	}
 
 	public int getNumberOfKettlesOnATable(int positionOfRequestedTable) {
-		Table table = arrayOfTables[positionOfRequestedTable];
+		Table table = tableList.get(positionOfRequestedTable);
 		return table.getNumberOfKettlesOnATable();
 	}
 
 	public int getNumberOfSaucepansOnACooker(int positioneOfCooker) {
-        Cooker cooker = arrayOfCookers[positioneOfCooker];
+        Cooker cooker = cookerList.get(positioneOfCooker);
 		return cooker.getNumberOfSaucepans();
 	}
 
